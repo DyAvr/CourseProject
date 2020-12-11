@@ -1,0 +1,33 @@
+﻿@{
+    ViewData["Title"] = "Encrypt";
+}
+
+<h2>Encrypt text and files</h2>
+<h4>Please, choose a file from your PC or enter your text:</h4>
+<form method="post" enctype="multipart/form-data" action="EncryptFile">
+    <label for="UserInput">Choose a file:</label><br>
+    <div style="width:10vw; height:15em; display:flex; align-self:flex-end; margin-right:10vw; width: 50%; padding: 1%; float:right">
+        <text class="m-auto">Enter your text:</text><br>
+        <textarea class="w-100" name="InputText" draggable="false">@ViewBag.BaseValue</textarea><br />
+    </div>
+    <input type="file" name="UsersFile" id="pathToFile" /><br><br>
+    <p>Attention! txt files are supported only in ANSI encoding.</p>
+    <h4>Enter the key:</h4>
+    <input type="text" name="Key" value="@ViewBag.Key" /><br><br>
+    <input type="submit" value="Submit">
+    <label style="margin-left:2vw;">@Html.RadioButton("Rus", "true", ViewBag.Rus == null, null)Russian</label>
+    <label style="margin-left:1vw;">@Html.RadioButton("Rus", "false", ViewBag.Rus != null, null)English</label>
+</form>
+<div class="col-md-6" style="text-align:center">
+    @if (ViewBag.Result != null)
+    {
+        <b>Result:</b>
+        <br />
+        <textarea name="result" style="width:30vw; height:15em" readonly>@ViewBag.Result</textarea>
+        <br />
+        <form action="@Url.Action($"DownloadFile")" method="post">
+            <input type="submit" value="Download as docx" name="downlType" /> <input type="submit" value="Download as txt" name="downlType" /><br />
+            <input type="hidden" name="encodedText" value="@ViewBag.Result" />
+        </form>
+    }
+</div>
