@@ -5,7 +5,10 @@ VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CourseProject", "CourseProject.csproj", "{0A88BCA8-A6EF-4AAB-86B8-24B7D3CB990A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CourseProjectTests", "..\CourseProjectTests\CourseProjectTests.csproj", "{98589722-A684-4357-9CB6-6788AB6B77FB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CourseProjectTests", "..\CourseProjectTests\CourseProjectTests.csproj", "{98589722-A684-4357-9CB6-6788AB6B77FB}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0A88BCA8-A6EF-4AAB-86B8-24B7D3CB990A} = {0A88BCA8-A6EF-4AAB-86B8-24B7D3CB990A}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
